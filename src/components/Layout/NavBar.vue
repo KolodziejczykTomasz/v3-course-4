@@ -45,7 +45,7 @@
               @click="showMobileNav = !showMobileNav"
               class="navbar-item"
               active-class="is-active"
-              to="/stat"
+              to="/stats"
           >
             Stat
           </RouterLink>
