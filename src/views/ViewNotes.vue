@@ -1,20 +1,20 @@
 <template>
   <div class="note">
       <AddEditNote 
-      v-model="newNote"
+        v-model="newNote"
+        ref="addEditNoteRef"
       >
           <template #buttons>
               <button
-              @click="addNote"
-              :disabled="!newNote"
-              class="button is-link has-background-success"
+                @click="addNote"
+                :disabled="!newNote"
+                class="button is-link has-background-success"
               >
                 Add New Note
               </button>
           </template>
       </AddEditNote>
-
-      <pre>{{ newNote }}</pre>
+     
           <Note
             v-for="note in storeNotes.notes"
             :key="note.id"
@@ -30,8 +30,8 @@
    import {useNotesStore} from "@/stores/storeNotes";
    
 
-   const newNote = ref('asasasa');
-   const newNoteRef = ref(null);
+   const newNote = ref(''); 
+   const addEditNoteRef = ref(null);  
    const storeNotes = useNotesStore();
 
 
@@ -39,7 +39,7 @@
    const addNote = () => {
         storeNotes.addNote(newNote.value)
         newNote.value=''
-        newNoteRef.value.focus()
-   }
+        addEditNoteRef.value.focusTextArea()
+    }
 
 </script>

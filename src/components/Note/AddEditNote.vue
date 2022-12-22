@@ -4,11 +4,11 @@
         <div class="field">
             <div class="control">
                 <textarea
-                    v-on:= "modelValue"
-                    @input="$emit('update: modelValue', modelValue)"                  
+                  :value="modelValue"
+                   @input="(e) => $emit('update:modelValue', e.target.value)"               
                     class="textarea" 
                     placeholder="Add a new note" 
-                    ref="newNoteRef" 
+                    ref="textAreaRef" 
                 />
             </div>
         </div>
@@ -23,6 +23,8 @@
 </template>
 <script setup>
 
+import { ref } from 'vue';
+
 const props = defineProps({
     modelValue: {
         type: String,
@@ -30,6 +32,14 @@ const props = defineProps({
     }
 })
 
-const emit = defineEmits(['update: modelValue'])
+const textAreaRef = ref(null);
 
+const emit = defineEmits(['update:modelValue'])
+const focusTextArea = ()=> {
+    textAreaRef.value.focus()
+}
+
+defineExpose({
+    focusTextArea
+})
 </script>
