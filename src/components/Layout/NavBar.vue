@@ -34,7 +34,7 @@
       >
         <div class="navbar-end">
           <RouterLink
-              @click="showMobileNav = !showMobileNav"
+              @click="showMobileNav = false"
               class="navbar-item"
               active-class="is-active"
               to="/"
@@ -42,7 +42,7 @@
             Notes
           </RouterLink>
           <RouterLink
-              @click="showMobileNav = !showMobileNav"
+              @click="showMobileNav = false"
               class="navbar-item"
               active-class="is-active"
               to="/stats"

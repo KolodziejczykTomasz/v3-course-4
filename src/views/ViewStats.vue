@@ -1,9 +1,30 @@
 <template>
   <div class="stat">
-    <h1>This is a stat page</h1>
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Stat</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Number of notes</td>
+          <td>{{ storeNotes.totalNotesCount}}</td>
+        </tr>
+        <tr>
+          <td>Number of character (of all notes)</td>
+          <td>{{ storeNotes.totalCharakterCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 </template>
 
-<style>
+<script setup>
+import { useNotesStore } from '@/stores/storeNotes';
+const storeNotes = useNotesStore()
 
-</style>
+</script>
+
